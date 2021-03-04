@@ -33,7 +33,7 @@ class ThirdFragment : Fragment() {
             .addConverterFactory(GsonConverterFactory.create()).build()
         val service = client.create(RetrofitService::class.java)
         CoroutineScope(Dispatchers.IO).launch {
-            service.getPosts().body()?.let { post ->
+            service.getPosts(1).body()?.let { post ->
                 CoroutineScope(Dispatchers.Main).launch {
                     if (post.size == 0) {
                         no_item.visibility = View.VISIBLE

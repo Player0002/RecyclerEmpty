@@ -4,8 +4,9 @@ import androidx.lifecycle.LiveData
 import com.danny.myapplication.data.Post
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface RetrofitService {
-    @GET("/posts?userId=1200")
-    suspend fun getPosts() : Response<Post>
+    @GET("/posts")
+    suspend fun getPosts(@Query("userId") id : Int) : Response<Post>
 }
